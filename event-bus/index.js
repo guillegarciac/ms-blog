@@ -36,6 +36,7 @@ app.post("/events", (req, res) => {
   res.send({ status: "OK" });
 });
 
+// Get all events that have been emitted so far so that the query service can process them and we don't lose any events
 app.get("/events", (req, res) => {
   res.send(events);
 });

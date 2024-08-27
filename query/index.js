@@ -9,6 +9,7 @@ app.use(cors());
 
 const posts = {};
 
+// This function will process events that are received from the event bus service and update the posts object accordingly
 const handleEvent = (type, data) => {
   if (type === "PostCreated") {
     const { id, title } = data;
@@ -48,13 +49,14 @@ app.post("/events", (req, res) => {
   res.send({});
 });
 
-// Listen for events from the event bus service on port 4005 and process them as they come in
+// Listen for events from the event bus service on port 4005 and process them as they come in so that the query service can update its state accordingly. This will allow the query service to have the most up-to-date information about posts and comments.
 
 app.listen(4002, async () => {
   console.log("Listening on 4002");
 
   const res = await axios.get("http://event-bus-srv:4005/events");
 
+  // This loop will process all events that have been emitted so far and update the posts object accordingly so that the query service has the most up-to-date information about posts and comments when it starts up and listens for new events. This will ensure that the query service does not miss any events that have been emitted before it started up. 
   for (let event of res.data) {
     console.log("Processing event:", event.type);
 
