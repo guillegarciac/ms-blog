@@ -1,3 +1,5 @@
+# this is the nodeport service which will expose the posts service to the outside world and will be used by the ingress-srv to route traffic to the posts service 
+
 apiVersion: v1
 kind: Service
 metadata:
