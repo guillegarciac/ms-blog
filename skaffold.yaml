@@ -7,7 +7,7 @@ build:
   local:
     push: false
   artifacts:
-    - image: guillegarciac/client-99
+    - image: guillegarciac/client
       context: client
       docker:
         dockerfile: Dockerfile
@@ -15,7 +15,7 @@ build:
         manual:
           - src: "src/**/*.js"
             dest: .
-    - image: guillegarciac/comments-84
+    - image: guillegarciac/comments
       context: comments
       docker:
         dockerfile: Dockerfile
@@ -23,7 +23,7 @@ build:
         manual:
           - src: "*.js"
             dest: .
-    - image: guillegarciac/event-bus-89
+    - image: guillegarciac/event-bus
       context: event-bus
       docker:
         dockerfile: Dockerfile
@@ -31,7 +31,7 @@ build:
         manual:
           - src: "*.js"
             dest: .
-    - image: guillegarciac/moderation-84
+    - image: guillegarciac/moderation
       context: moderation
       docker:
         dockerfile: Dockerfile
@@ -39,7 +39,7 @@ build:
         manual:
           - src: "*.js"
             dest: .
-    - image: guillegarciac/posts-100
+    - image: guillegarciac/posts
       context: posts
       docker:
         dockerfile: Dockerfile
@@ -47,7 +47,7 @@ build:
         manual:
           - src: "*.js"
             dest: .
-    - image: guillegarciac/query-84
+    - image: guillegarciac/query
       context: query
       docker:
         dockerfile: Dockerfile
