@@ -10,11 +10,12 @@ app.use(cors());
 
 const posts = {};
 
-app.get("/posts", (req, res) => {
+// Not needed since we implemented handler in query service to listen for events and update posts object accordingly. 
+/* app.get("/posts", (req, res) => {
   res.send(posts);
-});
+}); */
 
-app.post("/posts", async (req, res) => {
+app.post("/posts/create", async (req, res) => {
   const id = randomBytes(4).toString("hex");
   const { title } = req.body;
 
