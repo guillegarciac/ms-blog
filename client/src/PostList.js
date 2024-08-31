@@ -8,6 +8,7 @@ const PostList = () => {
 
   const fetchPosts = async () => {
     const res = await axios.get("http://posts.com/posts");
+
     setPosts(res.data);
   };
 
@@ -37,5 +38,4 @@ const PostList = () => {
     </div>
   );
 };
-
 export default PostList;
